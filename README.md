@@ -14,8 +14,8 @@ Setup:
 to a script at game start with "require()"
 2. Create a ".lua" file that returns a table for saving project constants; if
 the project has been bundled before, the table is saved automatically in debug
-3. A table in the module named "lookup" defines player-configurable settings
-4. Call the module as a function:
+3. A table in "look_dont_touch" named "lookup" defines configurable settings
+5. Call the module as a function:
 ```lua
 ldt(consts_path, consts_table, passkey)
   -- consts_path = path string to save the constants module
