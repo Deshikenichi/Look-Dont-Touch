@@ -1,0 +1,34 @@
+Look Don't Touch
+---
+
+This Lua module for Defold ensures selected "game.project" settings keep their
+expected values by reading from inside the bundle, inhibiting the extraordinary
+tampering Defold allows if players edit "game.projectc".
+
+Called as a function, it constructs a new .projectc-formatted file from the
+developer's desired constants and the user's desired configuration, then reboots
+the game using the merged config.
+
+Setup:
+1. Include this module & "inifile" with your project, and add "look_dont_touch"
+to a script at game start with "require()"
+2. Create a ".lua" file that returns a table for saving project constants; if
+the project has been bundled before, the table is saved automatically in debug
+3. A table in the module named "lookup" defines player-configurable settings
+4. Call the module as a function `ldt(consts_path, consts_table, passkey)`
+5. You may tidy up the "game.projectc" file to exclude unwanted settings
+
+consts_path = path string to save the constants module
+
+consts_table = the constants module
+
+passkey = the body of a "--config=" argument, like "bootstrap.rebooted=true"
+
+The constants table only picks up changes when running the project in debug,
+after bundling the project at least one time with the correct settings.
+
+*If you decide to tidy up the game.projectc file by deleting unwanted categories
+or keys, Defold still requires file paths if it cannot resolve an alternative.*
+For example, if the "main_collection" key is omitted, Defold looks for it at
+the engine default value: "/logic/main.collectionc"*
+

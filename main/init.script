@@ -1,0 +1,8 @@
+local ldt = require('look_dont_touch')
+local constants = require('constants')
+
+function init(self)
+	local passkey = 'bootstrap.rebooted=true'
+	if not ldt('constants.lua', constants, passkey) then return end
+	label.set_text('#label', 'Reboot successful!')
+end
