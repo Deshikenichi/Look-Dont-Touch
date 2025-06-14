@@ -15,19 +15,17 @@ to a script at game start with "require()"
 2. Create a ".lua" file that returns a table for saving project constants; if
 the project has been bundled before, the table is saved automatically in debug
 3. A table in the module named "lookup" defines player-configurable settings
-4. Call the module as a function `ldt(consts_path, consts_table, passkey)`
-5. You may tidy up the "game.projectc" file to exclude unwanted settings
-
-consts_path = path string to save the constants module
-
-consts_table = the constants module
-
-passkey = the body of a "--config=" argument, like "bootstrap.rebooted=true"
-
+4. Call the module as a function:
+```lua
+ldt(consts_path, consts_table, passkey)
+  -- consts_path = path string to save the constants module
+  -- consts_table = the constants module
+  -- passkey = the body of a "--config=" argument, like "bootstrap.rebooted=true"
+```
 The constants table only picks up changes when running the project in debug,
 after bundling the project at least one time with the correct settings.
 
-*If you decide to tidy up the game.projectc file by deleting unwanted categories
-or keys, Defold still requires file paths if it cannot resolve an alternative.*
-For example, if the "main_collection" key is omitted, Defold looks for it at
-the engine default value: "/logic/main.collectionc"
+The "game.projectc" file may be tidied up by deleting unwanted categories or
+keys. Note: *Defold still requires file paths if it cannot resolve an
+alternative.* For example, if the "main_collection" key is omitted, Defold
+looks for it at the engine default value: "/logic/main.collectionc"
