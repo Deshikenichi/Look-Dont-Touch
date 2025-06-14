@@ -30,5 +30,4 @@ after bundling the project at least one time with the correct settings.
 *If you decide to tidy up the game.projectc file by deleting unwanted categories
 or keys, Defold still requires file paths if it cannot resolve an alternative.*
 For example, if the "main_collection" key is omitted, Defold looks for it at
-the engine default value: "/logic/main.collectionc"*
-
+the engine default value: "/logic/main.collectionc"
