@@ -12,10 +12,10 @@ the game using the merged config.
 Setup:
 1. Include this module & "inifile" with your project, and add "look_dont_touch"
 to a script at game start with "require()"
-2. Create a ".lua" file that returns a table for saving project constants; if
-the project has been bundled before, the table is saved automatically in debug
+2. Create a ".lua" file that returns an empty table for saving project constants;
+if the project has been bundled before, the module fills the table in debug
 3. A table in "look_dont_touch" named "lookup" defines configurable settings
-5. Call the module as a function:
+4. Call the module as a function; it returns `true` if successful
 ```lua
 ldt(consts_path, consts_table, passkey)
   -- consts_path = path string to save the constants module
