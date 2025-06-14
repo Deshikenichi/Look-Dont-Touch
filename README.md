@@ -1,4 +1,4 @@
-Look Don't Touch
+Look, Don't Touch
 ---
 
 This Lua module for Defold ensures selected "game.project" settings keep their
