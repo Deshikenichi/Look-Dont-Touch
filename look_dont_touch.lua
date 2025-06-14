@@ -25,11 +25,11 @@ local lookup = {
     "stream_cache_size", },
 }
 
-local function get_subtable(table, t_string, category)
+local function get_subtable(ini_table, t_string, category)
   -- category must have at least one key left after game.properties `private = 1` filter
-  if next(table) then
+  if next(ini_table) then
     t_string = t_string .. "\n  " .. category .. " = {"
-    for key, value in pairs(table) do
+    for key, value in pairs(ini_table) do
       -- list keys
       local equals, comma = " = ", ","
       if type(value) == "string" then
@@ -45,11 +45,11 @@ local function get_subtable(table, t_string, category)
   return t_string
 end
 
-local function projectc2lua(table, path)
+local function projectc2lua(ini_table, path)
   -- write table to string
   local projectc_string = "return {"
-  if next(table) then
-    for category, subtable in pairs(table) do
+  if next(ini_table) then
+    for category, subtable in pairs(ini_table) do
       projectc_string = get_subtable(subtable, projectc_string, category)
     end
     -- add one more line break at end
