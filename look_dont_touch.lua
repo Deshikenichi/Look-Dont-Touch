@@ -96,7 +96,7 @@ local function reboot(consts_table, passkey)
   local key = passkey:match("[^=]*")
   local pass = passkey:match("=(.*)")
   -- do not reboot more than once
-  if sys.get_config_string(key, 0) == pass then
+  if sys.get_config_string(key, "INVALID") == pass then
     -- rebooted; expected project constants should be applied
     return true
   else
